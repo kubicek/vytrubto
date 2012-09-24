@@ -39,10 +39,9 @@
             <div class="helper-left playlists">
                 <h2 style="margin-top:0">Playlists:</h2>
                 <ol>
-                    <li><a href="#playlist-1">Playlist 1</a></li>
+                    <li><a href="#playlist-volby2012">Krajské a senátní volby 2012</a></li>
                     <li><a href="#playlist-jakl">Ladislav Jakl</a></li>
                     <li><a href="#playlist-snem2012">Sněm 2012</a></li>
-                    <li><a href="#playlist-4">Playlist 4</a></li>
                 </ol>
                 <div id="loading" style="margin: 4px 0;display:none;">loading...</div>
             </div>
@@ -51,8 +50,25 @@
         <script type="text/javascript">
             (function ($) {
                 var playlists = {
-                    'playlist-1': {
-                        user: 'DUBSnBREAKS'
+                    'playlist-volby2012': {
+                      title: 'Krajské a senátní volby 2012',
+                      videos: [{
+                          id: 'Y8tj1VTiBBU',
+                          title: 'Vít Jedlička lídr Strany svobodných občanů v Královéhradeckém kraji'
+                      }, {
+                          id: 'pXe9bnHXtv4',
+                          title: 'Milan Vodička - méně daní, více svobody!'
+                      }, {
+                          id: 'zxej18E5vjU',
+                          title: 'Svobodní JmK - Krajský volební program 2012 - Bod 1'
+                      }, {
+                          id: '2VY5b4eRtAc',
+                          title: 'Svobodní JmK - Krajský volební program 2012 - Bod 2'
+                      }, {
+                          id: '7PUrlsYurEA',
+                          title: 'Svobodní JmK - Krajský volební program 2012 - Bod 5'
+
+                      }]
                     },
                     'playlist-jakl': {
                         title: 'Ladislav Jakl - kandidát na prezidenta',
@@ -169,14 +185,10 @@
                             id: 'CnT_wt8Tt_g',
                             title: 'Sněm Svobodných 2012: Ladislav Jakl'
                         }]
-                    },
-                    'playlist-4': {
-                        playlist: '71B8152559FA2805',
-                        user: 'DUBSnBREAKS'
                     }
                 };
                 var playerConfig = {
-                    playlist: playlists['playlist-1'],
+                    playlist: playlists['playlist-volby2012'],
                     chromeless: 0,
                     onError: function (msg) {
                         alert(msg);
