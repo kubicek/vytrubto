@@ -15,19 +15,83 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/player.js"></script>
+
+        <div class="clearfix">
+            <div class="helper-left" style="width:430px;">
+                <div class="youtube-player">
+                    <div class="youtube-player-video">
+                        <div class="youtube-player-object">
+                            You need Flash player 8+ and JavaScript enabled to view this video.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="helper-left playlists">
+                <h2 style="margin-top:0">Playlists:</h2>
+                <ol>
+                    <li><a href="#playlist-1">Playlist 1</a></li>
+                    <li><a href="#playlist-2">Playlist 2</a></li>
+                    <li><a href="#playlist-3">Playlist 3</a></li>
+                    <li><a href="#playlist-4">Playlist 4</a></li>
+                </ol>
+                <div id="loading" style="margin: 4px 0;display:none;">loading...</div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            (function ($) {
+                var playlists = {
+                    'playlist-1': {
+                        user: 'DUBSnBREAKS'
+                    },
+                    'playlist-2': {
+                        title: 'Random videos',
+                        videos: [{
+                            id: 'wDowSzVgjXI',
+                            title: 'The All Seeing I - Beat Goes On HQ'
+                        }, {
+                            id: 'lvpuT3aoypE',
+                            title: 'All Online Data Lost After Internet Crash'
+                        }]
+                    },
+                    'playlist-3': {
+                        playlist: '71B8152559FA2805'
+                    },
+                    'playlist-4': {
+                        user: 'DUBSnBREAKS'
+                    }
+                };
+                var playerConfig = {
+                    playlist: playlists['playlist-1'],
+                    chromeless: 0,
+                    onError: function (msg) {
+                        alert(msg);
+                    },
+                    onBeforePlaylistLoaded: function (playlist) {
+                        $('#loading').show();
+                    },
+                    onAfterPlaylistLoaded: function (playlist) {
+                        $('#loading').hide();
+                    }
+                };
+                var player = $('.youtube-player').player(playerConfig);
+                $('.playlists a[href*=#]').click(function () {
+                    var playlist = playlists[this.hash.replace(/^.*?#/, '')];
+                    player.player('loadPlaylist', playlist);
+                    return false;
+                });
+            })(this.jQuery);
+        </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
