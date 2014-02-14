@@ -41,9 +41,10 @@
             <div class="helper-left playlists">
                 <h2 style="margin-top:0">Playlists:</h2>
                 <ol>
-                    <li><a href="#playlist-volby2012">Krajské a senátní volby 2012</a></li>
+                    <li><a href="#playlist-svobodni">YouTube kanál Svobodných</a></li>
+<!--                    <li><a href="#playlist-volby2012">Krajské a senátní volby 2012</a></li>
                     <li><a href="#playlist-jakl">Ladislav Jakl</a></li>
-                    <li><a href="#playlist-snem2012">Sněm 2012</a></li>
+                    <li><a href="#playlist-snem2012">Sněm 2012</a></li> -->
                 </ol>
                 <div id="loading" style="margin: 4px 0;display:none;">loading...</div>
             </div>
@@ -52,8 +53,12 @@
         <script type="text/javascript">
             (function ($) {
                 var playlists = {
+                    'playlist-svobodni': {
+                        title: 'YouTube kanál Svobodných',
+                        user: 'svobodni'
+                    },
                     'playlist-volby2012': {
-                      title: 'Krajské a senátní volby 2012',
+                      title: 'Krajské a senátní volby 012',
                       videos: [{
                           id: 'Y8tj1VTiBBU',
                           title: 'Vít Jedlička lídr Strany svobodných občanů v Královéhradeckém kraji'
@@ -190,7 +195,10 @@
                     }
                 };
                 var playerConfig = {
-                    playlist: playlists['playlist-volby2012'],
+                    width: 850,
+                    height: 712,
+                    playlist: playlists['playlist-svobodni'],
+                    autoStart: 1,
                     chromeless: 0,
                     onError: function (msg) {
                         alert(msg);

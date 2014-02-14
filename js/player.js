@@ -481,7 +481,8 @@ if (!(window.console && console.log)) {
                 url += '?callback=?';
                 var data = {
                     alt: 'json',
-                    format: '5'
+                    format: '5',
+                    orderby: 'published'
                 };
                 if (playlist.user) {
                     data.author = playlist.user;
